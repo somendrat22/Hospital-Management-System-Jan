@@ -6,13 +6,17 @@ import java.util.HashMap;
 
 public class PatientDatabase {
     HashMap<String, Patient> patientDB;
-    PatientDatabase(){
+    public PatientDatabase(){
         this.patientDB = new HashMap<>();
     }
 
     public void addPatient(Patient obj){
         String pId = obj.getpId();
         patientDB.put(pId, obj);
+    }
+
+    public int getTotalPatientCount(){
+        return patientDB.size();
     }
 
     public Patient getPatient(String pId){
