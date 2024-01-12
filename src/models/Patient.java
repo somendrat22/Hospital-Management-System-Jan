@@ -1,10 +1,47 @@
 package models;
 
 public class Patient {
-    String pId;
+    public String pId;
     String name;
     int age;
     Long phoneNumber;
+
+    public String getpId() {
+        return pId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getDisease() {
+        return disease;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
     String email;
     String gender;
     String disease;
