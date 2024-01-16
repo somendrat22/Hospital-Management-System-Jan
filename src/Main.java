@@ -7,5 +7,6 @@ public class Main {
         h.appointDoctor("MBBS", "Somendra", 123, "HeartSurgeon", 100000, "12:30-3:30");
         h.createRoom();
         h.admitPatient("Somendra", 23, 123,"123,", "Male", "Kuch nahi" );
+        h.getPatientById("PID1");
     }
 }
