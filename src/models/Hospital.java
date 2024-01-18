@@ -92,14 +92,14 @@ public class Hospital {
         System.out.println("Room added successfully -> " +  room);
     }
 
-    public void appointDoctor(String docDegree, String name, long phoneNumber, String speciality, int salary, String timeSlot){
+    public void appointDoctor(String docDegree, String name, long phoneNumber, String speciality, int salary, String timeSlot) throws ArithmeticException, NullPointerException, ArrayIndexOutOfBoundsException{
         String docId = "DOCID" + (HospitalObjectFactory.getDoctorDatabase().getTotalDoctors() + 1);
         Doctor doc = new Doctor(docId,docDegree, name, phoneNumber, speciality, salary, timeSlot);
         HospitalObjectFactory.getDoctorDatabase().adddoctorToDB(doc);
         System.out.println("Doctor created successfully ->" + doc);
     }
 
-    public void getPatientById(String pId){
+    public void getPatientById(String pId) throws ArithmeticException{
         PatientService p = new PatientServiceImpl();
         System.out.println(p.getPatientById(pId));
     }
