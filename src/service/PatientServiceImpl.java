@@ -1,6 +1,8 @@
 package service;
 
 import database.PatientDatabase;
+import exceptions.DatabaseNotInitializedException;
+import exceptions.IDDoesNotExistException;
 import factory.HospitalObjectFactory;
 import models.Doctor;
 import models.Patient;
@@ -10,24 +12,18 @@ public class PatientServiceImpl implements PatientService{
 
 
     PatientDatabase patientDatabase;
-    public PatientServiceImpl(){
-        this.patientDatabase = HospitalObjectFactory.getPatientDatabase();
+    public PatientServiceImpl() throws DatabaseNotInitializedException{
+        this.patientDatabase = null;
+        if(this.patientDatabase == null){
+            throw new DatabaseNotInitializedException("Can't Create Database");
+        }
     }
 
     @Override
-    public Patient getPatientById(String pId) throws ArithmeticException {
+    public Patient getPatientById(String pId){
         Patient p  = patientDatabase.getPatient(pId);
-//        String name  = p.getName();
-        // DB Connection
-
-        try{
-            throw  new ArithmeticException("");
-        }catch (NullPointerException e){
-            System.out.println("Patient with this particular id is not present i ssystem");
-        }finally {
-            // Disconnect the db connection
-
-            System.out.println("In finally");
+        if(p == null){
+           throw new IDDoesNotExistException(String.format("Patient with Id %s does not exist in System.", pId));
         }
         return p;
     }

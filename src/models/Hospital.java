@@ -3,6 +3,7 @@ package models;
 import database.DoctorDatabase;
 import database.PatientDatabase;
 import database.RoomDatabase;
+import exceptions.DatabaseNotInitializedException;
 import factory.HospitalObjectFactory;
 import service.PatientService;
 import service.PatientServiceImpl;
@@ -99,8 +100,13 @@ public class Hospital {
         System.out.println("Doctor created successfully ->" + doc);
     }
 
-    public void getPatientById(String pId) throws ArithmeticException{
-        PatientService p = new PatientServiceImpl();
+    public void getPatientById(String pId) throws ArithmeticException {
+        try{
+            PatientService p = new PatientServiceImpl();
+        }catch (DatabaseNotInitializedException e){
+            // write your own logic
+        }
+
         System.out.println(p.getPatientById(pId));
     }
 

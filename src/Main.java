@@ -1,19 +1,20 @@
+import exceptions.DatabaseNotInitializedException;
 import models.Hospital;
 
 import java.nio.file.FileAlreadyExistsException;
 
 public class Main {
 
-    public static void hii() throws ArithmeticException{
-        int sonAge = 5;
-        int motherAge = 2;
-        if(motherAge < sonAge){
-            Hospital h = new Hospital("XYZ", "XYZ", 123, "XYZ");
-            h.getPatientById("123");
-        }else{
-
-        }
-    }
+//    public static void hii() throws ArithmeticException{
+//        int sonAge = 5;
+//        int motherAge = 2;
+//        if(motherAge < sonAge){
+//            Hospital h = new Hospital("XYZ", "XYZ", 123, "XYZ");
+//            h.getPatientById("123");
+//        }else{
+//
+//        }
+//    }
 
     public static void h1() throws FileAlreadyExistsException{
         throw new FileAlreadyExistsException("Hey");
@@ -26,7 +27,7 @@ public class Main {
 
 
 
-    public static void main(String[] args) throws ArithmeticException{
+    public static void main(String[] args) throws ArithmeticException, DatabaseNotInitializedException {
 
         Hospital h = new Hospital("XYZ", "XYZ", 123, "XYZ");
         h.appointDoctor("MBBS", "Somendra", 123, "HeartSurgeon", 100000, "12:30-3:30");
